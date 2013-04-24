@@ -166,7 +166,7 @@
 		1891BF7D16EF2A89007A0B65 /* AneEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AneEvents.h; sourceTree = "<group>"; };
 		1891BF8116EF2C74007A0B65 /* AneSDKTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AneSDKTools.h; path = tools/AneSDKTools.h; sourceTree = "<group>"; };
 		1891BF8216EF2C74007A0B65 /* AneSDKTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AneSDKTools.m; path = tools/AneSDKTools.m; sourceTree = "<group>"; };
-		1891BFA216EF382B007A0B65 /* libAneSDK-IOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libAneSDK-IOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1891BFA216EF382B007A0B65 /* libAneSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAneSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1891BFAB16EF517B007A0B65 /* Platformlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platformlib.h; sourceTree = "<group>"; };
 		1891BFAD16EF531A007A0B65 /* YZPlatformDelete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZPlatformDelete.h; sourceTree = "<group>"; };
 		1891BFAE16EF531A007A0B65 /* YZPlatformDelete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZPlatformDelete.m; sourceTree = "<group>"; };
@@ -322,7 +322,7 @@
 			children = (
 				1891BF4B16EF1DE9007A0B65 /* AneSDK_IOS.ane */,
 				1891BF4E16EF1DE9007A0B65 /* DebugAneSDK_IOSAIRApp.app */,
-				1891BFA216EF382B007A0B65 /* libAneSDK-IOS.a */,
+				1891BFA216EF382B007A0B65 /* libAneSDK.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -503,7 +503,7 @@
 			);
 			name = "AneSDK-IOS";
 			productName = AneSDK_IOS;
-			productReference = 1891BFA216EF382B007A0B65 /* libAneSDK-IOS.a */;
+			productReference = 1891BFA216EF382B007A0B65 /* libAneSDK.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -721,7 +721,7 @@
 		1891BFA116EF382B007A0B65 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "/Users/lzm/ane/AneSDK_LZM/iPhone-ARM";
+				CONFIGURATION_BUILD_DIR = "/Users/zmLiu/git/ANEList/Export/iPhone-ARM";
 				DSTROOT = /tmp/AneSDK_IOS.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AneSDK_IOS/AneSDK_IOS-Prefix.pch";
