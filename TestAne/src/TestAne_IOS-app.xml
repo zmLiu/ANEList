@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/3.6">
+<id>com.yzyz.haizhan</id>
+	<filename>TestAne</filename>
+	<name>TestAne</name>
+	<versionNumber>0.0.0</versionNumber>
+	<initialWindow>
+		<content>[此值将由 Flash Builder 在输出 app.xml 中覆盖]</content>
+		<aspectRatio>landscape</aspectRatio>
+		<autoOrients>false</autoOrients>
+        <fullScreen>false</fullScreen>
+        <visible>true</visible>
+        <renderMode>gpu</renderMode>
+    </initialWindow>
+	
+	<icon>
+        <image57x57>icon57.png</image57x57>
+        <image72x72>icon72.png</image72x72>
+        <image114x114>icon114.png</image114x114>
+        <image144x144>icon144.png</image144x144>
+    </icon>
+    
+    <iPhone>
+        <InfoAdditions><![CDATA[
+			<key>UIDeviceFamily</key>
+			<array>
+				<string>1</string>
+				<string>2</string>
+			</array>
+		]]></InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+    </iPhone>
+    
+    <extensions>
+    	<extensionID>com.lzm.anesdk.ios</extensionID>
+    </extensions>
+</application>

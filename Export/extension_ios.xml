@@ -1,0 +1,16 @@
+<extension xmlns="http://ns.adobe.com/air/extension/3.1">
+	<id>com.lzm.anesdk.ios</id>
+	<versionNumber>1</versionNumber>
+	<platforms>
+		<platform name="iPhone-ARM">
+			<applicationDeployment>
+				<nativeLibrary>libAneSDK.a</nativeLibrary>
+				<initializer>AneSDKIOSExtInitializer</initializer>
+				<finalizer>AneSDKIOSExtFinalizer</finalizer>
+			</applicationDeployment>
+		</platform>
+        <platform name="default">
+            <applicationDeployment />
+        </platform>
+	</platforms>
+</extension>

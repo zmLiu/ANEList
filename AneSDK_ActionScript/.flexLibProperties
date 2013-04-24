@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="com.lzm.anesdk.AneSDK"/>
+    <classEntry path="com.lzm.anesdk.tools.Tools"/>
+    <classEntry path="com.lzm.anesdk.AneEvents"/>
+    <classEntry path="com.lzm.anesdk.yeepay.YeePay"/>
+    <classEntry path="com.lzm.anesdk.yzplatform.YZPlatform"/>
+    <classEntry path="com.lzm.anesdk.flurry.Flurry"/>
+    <classEntry path="com.lzm.anesdk.weixin.WeiXin"/>
+    <classEntry path="com.lzm.anesdk.weibo.WeiBo"/>
+    <classEntry path="com.lzm.anesdk.openqq.OpenQQ"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

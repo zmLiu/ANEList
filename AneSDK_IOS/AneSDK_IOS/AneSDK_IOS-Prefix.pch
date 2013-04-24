@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'AneSDK_IOS' target in the 'AneSDK_IOS' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import "AneEvents.h"
+#endif

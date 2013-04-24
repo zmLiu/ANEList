@@ -1,0 +1,16 @@
+<extension xmlns="http://ns.adobe.com/air/extension/3.1">
+    <id>com.lzm.anesdk.android</id>
+    <versionNumber>1</versionNumber>
+    <platforms>
+        <platform name="Android-ARM">
+            <applicationDeployment>
+                <nativeLibrary>AneSDK.jar</nativeLibrary>
+                <initializer>com.lzm.anesdk.AneExtension</initializer>
+                <finalizer>com.lzm.anesdk.AneExtension</finalizer>
+            </applicationDeployment>
+        </platform>
+    <platform name="default">
+        <applicationDeployment />
+    </platform>
+    </platforms>
+</extension>
