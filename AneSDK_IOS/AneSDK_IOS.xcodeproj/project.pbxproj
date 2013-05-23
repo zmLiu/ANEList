@@ -721,7 +721,7 @@
 		1891BFA116EF382B007A0B65 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "/Users/zmLiu/git/ANEList/Export/iPhone-ARM";
+				CONFIGURATION_BUILD_DIR = "/Users/lzm/git/ANEList/Export/iPhone-ARM";
 				DSTROOT = /tmp/AneSDK_IOS.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AneSDK_IOS/AneSDK_IOS-Prefix.pch";
