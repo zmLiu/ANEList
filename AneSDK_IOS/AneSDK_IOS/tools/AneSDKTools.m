@@ -12,6 +12,7 @@
 #import <net/if.h>
 #import <net/if_dl.h>
 #import <CommonCrypto/CommonDigest.h>
+#import <sys/utsname.h>
 
 @implementation AneSDKTools
 
@@ -27,6 +28,8 @@
         return [self makeScore:[self getNSStringFromFreObject:args[1]]];
     }else if([funKey isEqualToString:@"parseTransactionReceipt"]){
         return [self parseTransactionReceipt:[self getNSStringFromFreObject:args[1]]];
+    }else if([funKey isEqualToString:@"deviceString"]){
+        return [self deviceString];
     }
     return NULL;
 }
@@ -60,6 +63,13 @@
 -(FREObject) parseTransactionReceipt:(NSString *)receipt{
     receipt = [receipt stringByReplacingOccurrencesOfString:@"+" withString:@"%2B"]; 
     return [self getfreobjectFromNSString:receipt];
+}
+
+-(FREObject) deviceString{
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *deviceString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    return [self getfreobjectFromNSString:deviceString];
 }
 
 

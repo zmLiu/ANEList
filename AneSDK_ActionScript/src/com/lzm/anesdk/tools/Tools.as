@@ -49,5 +49,15 @@ package com.lzm.anesdk.tools
 			return extensionContext.call(aneFunction,"parseTransactionReceipt",receipt) as String;
 		}
 		
+		/**
+		 * 获取设备描述符 
+		 * @return 
+		 * 
+		 */		
+		public function deviceString():String{
+			if(isSimulator) return "";
+			return extensionContext.call(aneFunction,"deviceString") as String;
+		}
+		
 	}
 }

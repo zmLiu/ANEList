@@ -23,4 +23,7 @@
 //评分
 -(FREObject) makeScore:(NSString*) appid;
 
+//获取设备描述符
+-(FREObject) deviceString;
+
 @end
