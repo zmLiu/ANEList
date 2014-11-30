@@ -31,4 +31,6 @@ Android
 易宝支付
 		
 获取设备id
+
+[信鸽推送](http://xg.qq.com/)
 ```

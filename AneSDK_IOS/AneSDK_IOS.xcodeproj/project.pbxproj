@@ -53,7 +53,7 @@
 		1891BF8716EF382B007A0B65 /* AneSDK_IOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891BF5816EF1DE9007A0B65 /* AneSDK_IOS.m */; };
 		1891BF8816EF382B007A0B65 /* AneFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891BF6D16EF2051007A0B65 /* AneFunction.m */; };
 		1891BF8916EF382B007A0B65 /* AneSDKTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1891BF8216EF2C74007A0B65 /* AneSDKTools.m */; };
-		1891BF8B16EF382B007A0B65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891BF2B16EF1DE9007A0B65 /* Foundation.framework */; };
+		1891BF8B16EF382B007A0B65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891BF2B16EF1DE9007A0B65 /* Foundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		1891BF8C16EF382B007A0B65 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891BF2D16EF1DE9007A0B65 /* CoreFoundation.framework */; };
 		1891BF8D16EF382B007A0B65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891BF2F16EF1DE9007A0B65 /* UIKit.framework */; };
 		1891BF8E16EF382B007A0B65 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891BF3116EF1DE9007A0B65 /* MobileCoreServices.framework */; };
@@ -512,7 +512,7 @@
 		1891BF1F16EF1DE9007A0B65 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = 1891BF2216EF1DE9007A0B65 /* Build configuration list for PBXProject "AneSDK_IOS" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -609,7 +609,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -628,6 +627,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "/Applications/Adobe Flash Builder 4.7/sdks/4.6.0/include/";
 			};
@@ -637,7 +637,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/3.6">
-	<id>TestAne</id>
+<application xmlns="http://ns.adobe.com/air/application/15.0">
+	<id>lzm.testane</id>
 	<filename>TestAne</filename>
 	<name>TestAne</name>
-	<versionNumber>0.0.0</versionNumber>
+	<versionNumber>0.0.1</versionNumber>
 	<initialWindow>
 		<content>[此值将由 Flash Builder 在输出 app.xml 中覆盖]</content>
 		<aspectRatio>landscape</aspectRatio>
 		<autoOrients>false</autoOrients>
-        <fullScreen>false</fullScreen>
+        <fullScreen>true</fullScreen>
         <visible>true</visible>
         <renderMode>gpu</renderMode>
     </initialWindow>
@@ -21,46 +21,100 @@
     </icon>
 
 <android>
-        <manifestAdditions><![CDATA[
-			<manifest android:installLocation="auto">
-				 <application>
-	                 <activity android:name="com.yeepay.android.plugin.YeepayPlugin" 
-						android:screenOrientation="portrait"
-						android:configChanges="keyboardHidden|orientation"
-						android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-			        
-			        <activity android:name="com.lzm.anesdk.yeepay.StartYeepayActivity">
-			          	<intent-filter>
-			          		<action android:name="com.lzm.anesdk.yeepay.StartYeepayActivity" />
-			          		<category android:name="android.intent.category.DEFAULT" />
-			      		</intent-filter>
-			        </activity>
-                 </application>
-			
-			
-			    <!--See the Adobe AIR documentation for more information about setting Google Android permissions-->
-			    <!--删除 android.permission.INTERNET 权限将导致无法调试设备上的应用程序-->
-			    <uses-permission android:name="android.permission.INTERNET"/>
-			    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-			    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-			    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-			    <!--应同时切换 DISABLE_KEYGUARD 和 WAKE_LOCK 权限，才能访问 AIR
-					的 SystemIdleMode API-->
-			    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
-			    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-			    <uses-permission android:name="android.permission.CAMERA"/>
-			    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-			    <!--应同时切换 ACCESS_NETWORK_STATE 和 ACCESS_WIFI_STATE 权限，才能使用 AIR
-					的 NetworkInfo API-->
-			    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-			    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-			    
-			    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
-			    
-			</manifest>
-			
-		]]></manifestAdditions>
-    </android>
+<manifestAdditions><![CDATA[
+<manifest android:installLocation="auto">
+	<application>
+		
+		<!-- 【必须】 (2.30及以上版新增)展示通知的activity -->
+		<activity
+		android:name="com.tencent.android.tpush.XGPushActivity"
+		android:theme="@android:style/Theme.Translucent" >
+			<intent-filter>
+				<action android:name="" />
+			</intent-filter>
+		</activity>
+
+		<!-- 【必须】 信鸽receiver广播接收 -->
+		<receiver
+		android:name="com.tencent.android.tpush.XGPushReceiver"
+		android:process=":xg_service_v2" >
+			<intent-filter android:priority="0x7fffffff" >
+
+				<!-- 【必须】 信鸽SDK的内部广播 -->
+				<action android:name="com.tencent.android.tpush.action.SDK" />
+				<action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE" />
+				<!-- 【必须】 系统广播：开屏和网络切换 -->
+				<action android:name="android.intent.action.USER_PRESENT" />
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+				<!-- 【可选】 一些常用的系统广播，增强信鸽service的复活机会，请根据需要选择。当然，你也可以添加APP自定义的一些广播让启动service -->
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+				<action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+				<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+				<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+			</intent-filter>
+			<!-- 【可选】 usb相关的系统广播，增强信鸽service的复活机会，请根据需要添加 -->
+			<intent-filter android:priority="0x7fffffff" >
+				<action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+				<action android:name="android.intent.action.MEDIA_REMOVED" />
+				<action android:name="android.intent.action.MEDIA_CHECKING" />
+				<action android:name="android.intent.action.MEDIA_EJECT" />
+				<data android:scheme="file" />
+			</intent-filter>
+		</receiver>
+
+		<!-- 【必须】 信鸽service -->
+		<service
+		android:name="com.tencent.android.tpush.service.XGPushService"
+		android:exported="true"
+		android:persistent="true"
+		android:process=":xg_service_v2" />
+
+		<!-- 【必须】 通知service，此选项有助于提高抵达率 -->
+		<service
+		android:name="com.tencent.android.tpush.rpc.XGRemoteService"
+		android:exported="true" >
+			<intent-filter>
+				<action android:name="air.lzm.testane.PUSH_ACTION" />
+			</intent-filter>
+		</service><!-- 【建议】 信鸽service守护进程，可以增加复活机会，提升消息抵达率 -->
+		<service
+		android:name="com.tencent.android.tpush.service.XGDaemonService"
+		android:process=":qq_push_daemon" />
+
+		<!-- 【必须】 请将YOUR_ACCESS_ID修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
+		<meta-data
+		android:name="XG_V2_ACCESS_ID"
+		android:value="2100065350" />
+		<!-- 【必须】 请将YOUR_ACCESS_KEY修改为APP的AccessKey，“A”开头的12位字符串，中间没空格 -->
+		<meta-data
+		android:name="XG_V2_ACCESS_KEY"
+		android:value="A3G1Q1NYB91D" />
+	</application>
+
+	<!-- 【必须】 信鸽SDK所需权限 -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.RESTART_PACKAGES" />
+	<uses-permission android:name="android.permission.BROADCAST_STICKY" />
+	<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+	<uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+	<uses-permission android:name="android.permission.GET_TASKS" />
+	<uses-permission android:name="android.permission.READ_LOGS" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<!-- 【可选】 信鸽SDK所需权限 -->
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+	<uses-permission android:name="android.permission.BATTERY_STATS" />
+
+</manifest>
+]]></manifestAdditions>
+</android>
     
     <extensions>
     	<extensionID>com.lzm.anesdk.android</extensionID>

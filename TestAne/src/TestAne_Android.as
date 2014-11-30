@@ -1,7 +1,6 @@
 package
 {
 	import com.lzm.anesdk.AneSDK;
-	import com.lzm.anesdk.tools.Tools;
 	
 	import flash.display.Sprite;
 	import flash.sensors.Geolocation;
@@ -13,7 +12,9 @@ package
 			super();
 			
 			AneSDK.initSDK(!Geolocation.isSupported,AneSDK.ANE_PLATFORM_ANDROID);
-			trace(new Tools().getDevciteID());
+			
+			new TestXG();
+			
 		}
 	}
 }

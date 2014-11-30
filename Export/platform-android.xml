@@ -1,0 +1,18 @@
+<platform xmlns="http://ns.adobe.com/air/extension/15.0">
+	<description>An optional description.</description>
+	<copyright>2011 (optional)</copyright>
+	<packagedDependencies>
+		<packagedDependency>android-support-v4.jar</packagedDependency>
+		<packagedDependency>common-23.0.2.jar</packagedDependency>
+		<packagedDependency>mid-sdk-2.10.jar</packagedDependency>
+		<packagedDependency>wup-1.0.0-SNAPSHOT.jar</packagedDependency>
+		<packagedDependency>Xg_sdk_v2.35.jar</packagedDependency>
+		<packagedDependency>YeepayApkPlugin_2.0.1.jar</packagedDependency>
+	</packagedDependencies>
+	<packagedResources>
+		<!--<packagedResource>
+			<packageName>com.tencent.android.tpush</packageName>
+			<folderName>xg-res</folderName>
+		</packagedResource> -->
+	</packagedResources>
+</platform>

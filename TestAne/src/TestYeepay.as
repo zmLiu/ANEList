@@ -33,4 +33,51 @@ package
 			trace(data);
 		}
 	}
+	
+	/**
+	 * 
+	 * 
+	 * <android>
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+				 <application>
+	                 <activity android:name="com.yeepay.android.plugin.YeepayPlugin" 
+						android:screenOrientation="portrait"
+						android:configChanges="keyboardHidden|orientation"
+						android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+			        
+			        <activity android:name="com.lzm.anesdk.yeepay.StartYeepayActivity">
+			          	<intent-filter>
+			          		<action android:name="com.lzm.anesdk.yeepay.StartYeepayActivity" />
+			          		<category android:name="android.intent.category.DEFAULT" />
+			      		</intent-filter>
+			        </activity>
+                 </application>
+			
+			
+			    <!--See the Adobe AIR documentation for more information about setting Google Android permissions-->
+			    <!--删除 android.permission.INTERNET 权限将导致无法调试设备上的应用程序-->
+			    <uses-permission android:name="android.permission.INTERNET"/>
+			    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+			    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+			    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+			    <!--应同时切换 DISABLE_KEYGUARD 和 WAKE_LOCK 权限，才能访问 AIR
+					的 SystemIdleMode API-->
+			    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+			    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+			    <uses-permission android:name="android.permission.CAMERA"/>
+			    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+			    <!--应同时切换 ACCESS_NETWORK_STATE 和 ACCESS_WIFI_STATE 权限，才能使用 AIR
+					的 NetworkInfo API-->
+			    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+			    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+			    
+			    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+			    
+			</manifest>
+			
+		]]></manifestAdditions>
+    </android>
+	 * 
+	 * */
 }
